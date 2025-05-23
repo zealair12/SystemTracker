@@ -17,9 +17,10 @@ def hello():
 @app.route('/api/events')
 def get_events():
     """Endpoint to get all events and trigger generation of a new event"""
-    # Run Perl script to generate a new event
+    # Run Perl script to generate a new event with full path to perl.exe
     script_path = os.path.join(os.path.dirname(__file__), 'simulate.pl')
-    result = subprocess.run(["perl", script_path], capture_output=True, text=True)
+    perl_path = "C:\\Strawberry\\perl\\bin\\perl.exe"
+    result = subprocess.run([perl_path, script_path], capture_output=True, text=True)
     
     if result.returncode == 0:
         line = result.stdout.strip()
