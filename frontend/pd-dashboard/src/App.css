@@ -1,0 +1,89 @@
+.App {
+  font-family: Arial, sans-serif;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.App-header {
+  background-color: #1a73e8;
+  color: white;
+  padding: 15px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.App-header h1 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.refresh-button {
+  background-color: white;
+  color: #1a73e8;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.refresh-button:hover {
+  background-color: #f1f3f4;
+}
+
+.content {
+  background-color: #f8f9fa;
+  border-radius: 5px;
+  padding: 20px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.loading, .error, .no-events {
+  text-align: center;
+  padding: 20px;
+  font-size: 18px;
+}
+
+.error {
+  color: #d93025;
+}
+
+.events-container h2 {
+  color: #3c4043;
+  margin-top: 0;
+  border-bottom: 1px solid #dadce0;
+  padding-bottom: 10px;
+}
+
+.events-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.event-item {
+  padding: 12px;
+  border-bottom: 1px solid #dadce0;
+  display: flex;
+  flex-direction: column;
+}
+
+.event-item:last-child {
+  border-bottom: none;
+}
+
+.timestamp {
+  color: #5f6368;
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+
+.message {
+  font-size: 16px;
+} 
