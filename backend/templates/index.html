@@ -635,6 +635,7 @@
                         <br>• "I remember something about golden lampstands"
                         <br>• "Tell me about John 3:16"
                         <br><br>Just speak or type naturally!
+                        <br><br><strong>Setup:</strong> For AI-powered analysis, get a free Gemini API key from <a href="https://makersuite.google.com/app/apikey" target="_blank">Google AI Studio</a> and add it to your .env file.
                     </div>
                 </div>
 
@@ -781,7 +782,13 @@
                     
                     // Add assistant response to chat
                     const explanation = data.results.llm_analysis.explanation;
-                    addMessage(explanation, 'assistant');
+                    
+                    // Check if AI is not configured
+                    if (explanation.includes('AI analysis not available') || explanation.includes('not configured')) {
+                        addMessage(`I can still search Bible verses for you, but I need a Gemini API key for intelligent analysis. Here's what I found: ${explanation}`, 'assistant');
+                    } else {
+                        addMessage(explanation, 'assistant');
+                    }
                 } else {
                     throw new Error(data.error || 'Search failed');
                 }

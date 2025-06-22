@@ -1,209 +1,168 @@
-# 🤖 Intelligent Bible Assistant
+# Intelligent Bible Assistant
 
-A powerful, AI-powered Bible search and conversation tool that combines natural language processing, speech recognition, and intelligent verse analysis.
+A modern, AI-powered Bible search application with voice recognition and intelligent analysis.
 
-## ✨ Features
+## 🚀 Current Status
 
-### 🧠 **Intelligent AI Processing**
-- **Natural Language Understanding**: Ask questions in plain English
-- **LLM-Powered Analysis**: Google Gemini AI provides intelligent explanations
-- **Query Refinement**: AI automatically improves search queries for better results
-- **Confidence Scoring**: See how confident the AI is in its responses
+The app is **fully functional** for basic Bible searches! However, for the full AI-powered experience, you need to add a Gemini API key.
 
-### 🎤 **Voice Interaction**
-- **Speech Recognition**: Speak your questions naturally
-- **Text-to-Speech**: AI responses can be spoken back to you
-- **Real-time Processing**: Instant voice-to-text conversion
+### ✅ What Works Now
+- Bible verse searches using multiple APIs
+- Beautiful yellow-themed UI with interactive effects
+- Voice recognition (microphone input)
+- Text-to-speech capabilities
+- Modern responsive design
+- Ready for deployment on Render.com
 
-### 📖 **Advanced Bible Search**
-- **Multi-API Integration**: Searches across multiple Bible APIs
-- **Smart Context**: Understands partial verses and phrases
-- **Conversational Memory**: Remembers your search history
-- **Intelligent Filtering**: AI filters and ranks results by relevance
+### 🔧 What Needs Setup
+- **Gemini API Key** for intelligent AI analysis and explanations
 
-### 💬 **Conversational Interface**
-- **Chat-like Experience**: Natural back-and-forth conversations
-- **Context Awareness**: AI remembers previous questions
-- **Explanatory Responses**: Get detailed explanations of verses found
-- **Reasoning Display**: See how the AI arrived at its conclusions
+## 🎯 Quick Setup
 
-## 🚀 Quick Start
-
-### Prerequisites
-- Python 3.8+
-- Modern web browser with speech recognition support
-- Google Gemini API key (free tier available)
-
-### Installation
-
-1. **Clone the repository**
-   ```bash
-   git clone <your-repo-url>
-   cd SystemTracker
-   ```
-
-2. **Install Python dependencies**
-   ```bash
-   cd backend
-   pip install -r requirements.txt
-   ```
-
-3. **Set up API keys**
-   ```bash
-   # Copy the example environment file
-   cp env_example.txt .env
-   
-   # Edit .env and add your API keys:
-   # - Get Gemini API key: https://makersuite.google.com/app/apikey
-   # - Bible API key is already included
-   ```
-
-4. **Run the application**
-   ```bash
-   python app.py
-   ```
-
-5. **Open your browser**
-   ```
-   http://localhost:5000
-   ```
-
-## 🔧 Configuration
-
-### Required API Keys
-
-1. **Google Gemini AI** (Required for LLM features)
-   - Visit: https://makersuite.google.com/app/apikey
-   - Create a free account
-   - Generate an API key
-   - Add to `.env`: `GEMINI_API_KEY=your_key_here`
-
-2. **Bible API** (Already configured)
-   - Uses public Bible APIs
-   - No additional setup required
-
-### Optional: OpenAI API
-- For alternative LLM processing
-- Add to `.env`: `OPENAI_API_KEY=your_key_here`
-
-## 💡 Usage Examples
-
-### Natural Language Queries
-```
-"What does the Bible say about love?"
-"I remember something about golden lampstands"
-"Tell me about the verse that says 'for God so loved the world'"
-"What does Jesus say about forgiveness?"
+### Option 1: Run Setup Script (Recommended)
+```bash
+cd backend
+python setup.py
 ```
 
-### Voice Commands
-- Click the microphone button
-- Speak your question naturally
-- The AI will process and respond
+### Option 2: Manual Setup
+1. Get a free Gemini API key from [Google AI Studio](https://makersuite.google.com/app/apikey)
+2. Create a `.env` file in the `backend` folder:
+```env
+BIBLE_API_KEY=a1692756d99fab00256e70dbda406cc7
+GEMINI_API_KEY=your_gemini_api_key_here
+FLASK_ENV=development
+```
 
-### Features
-- **Intelligent Search**: AI understands context and refines queries
-- **Conversational Memory**: Previous questions are remembered
-- **Confidence Scoring**: See how reliable the results are
-- **Multi-Source Results**: Combines results from multiple Bible APIs
+## 🏃‍♂️ Running the App
 
-## 🏗️ Architecture
+```bash
+cd backend
+python app.py
+```
+
+Open http://localhost:5000 in your browser.
+
+## 🌟 Features
+
+### Current Features
+- **Bible Search**: Search verses using natural language
+- **Voice Input**: Speak your questions using microphone
+- **Multiple APIs**: Uses both Biblia.com and Bible-API.com
+- **Modern UI**: Beautiful yellow gradient theme with animations
+- **Responsive Design**: Works on desktop and mobile
+- **Text-to-Speech**: Hear responses aloud
+
+### With Gemini AI (After Setup)
+- **Intelligent Analysis**: AI-powered explanations of verses
+- **Query Refinement**: Automatically improves search terms
+- **Context Understanding**: Better understanding of natural language
+- **Confidence Scoring**: Shows how confident the AI is in results
+
+## 🎨 UI Features
+
+- **Interactive Cursor**: Follows your mouse with smooth animations
+- **Floating Particles**: Ambient background effects
+- **Hover Animations**: Cards lift and glow on hover
+- **Ripple Effects**: Button click animations
+- **Yellow Theme**: Beautiful gradient design
+- **Voice Recognition**: Real-time speech input
+
+## 🚀 Deployment
+
+### Render.com (Recommended)
+1. Push code to GitHub
+2. Connect repository to Render
+3. Set environment variables:
+   - `GEMINI_API_KEY`: Your Gemini API key
+   - `BIBLE_API_KEY`: Bible API key (optional)
+4. Deploy!
+
+### Other Platforms
+- **Heroku**: Use the Procfile and runtime.txt
+- **Railway**: Direct deployment from GitHub
+- **Vercel**: Python runtime support
+
+## 📁 Project Structure
+
+```
+SystemTracker/
+├── backend/
+│   ├── app.py              # Main Flask application
+│   ├── templates/
+│   │   └── index.html      # Frontend interface
+│   ├── requirements.txt    # Python dependencies
+│   ├── setup.py           # Setup script
+│   ├── .env               # Environment variables
+│   ├── Procfile           # Heroku deployment
+│   └── runtime.txt        # Python version
+├── frontend/              # Legacy frontend (not used)
+└── README.md
+```
+
+## 🔧 Technical Details
 
 ### Backend (Flask)
-- **IntelligentBibleSearch**: Core AI-powered search engine
-- **LLM Integration**: Google Gemini for natural language processing
-- **Multi-API Search**: Biblia.com and Bible API integration
-- **Conversation Management**: Maintains chat history and context
+- **Flask**: Web framework
+- **Google Generative AI**: For intelligent analysis
+- **Bible APIs**: Multiple sources for comprehensive results
+- **gTTS**: Text-to-speech conversion
+- **CORS**: Cross-origin support
 
-### Frontend (HTML/JavaScript)
-- **Modern UI**: Clean, responsive design
-- **Speech Recognition**: Web Speech API integration
-- **Real-time Updates**: Dynamic result display
-- **Conversational Interface**: Chat-like user experience
+### Frontend (HTML/CSS/JS)
+- **Vanilla JavaScript**: No frameworks needed
+- **Web Speech API**: Voice recognition
+- **CSS Animations**: Smooth interactions
+- **Responsive Design**: Mobile-friendly
 
-## 🔍 API Endpoints
+## 🎯 Usage Examples
 
-- `POST /api/intelligent-search` - Main AI-powered search
-- `POST /api/speech-to-text` - Process voice input
-- `POST /api/text-to-speech` - Generate speech output
-- `GET /api/conversation-history` - Get chat history
-- `POST /api/clear-history` - Clear conversation history
-- `GET /api/health` - Health check
+### Basic Searches (Works Now)
+- "John 3:16"
+- "love"
+- "Matthew 24"
+- "golden lampstands"
 
-## 🎯 Key Features Explained
+### AI-Enhanced (After Gemini Setup)
+- "What does the Bible say about forgiveness?"
+- "I'm feeling anxious, show me comforting verses"
+- "Explain the parable of the prodigal son"
+- "What are the fruits of the Spirit?"
 
-### 1. **Natural Language Processing**
-The AI understands queries like:
-- "I remember something about golden lampstands" → Searches for "golden candlesticks" (KJV term)
-- "What does the Bible say about love?" → Searches multiple love-related verses
-- "Tell me about John 3:16" → Direct verse lookup with explanation
+## 🛠️ Troubleshooting
 
-### 2. **Intelligent Query Refinement**
-- User: "I remember something about God loving the world"
-- AI: Refines to "for God so loved the world" for better search results
-- Returns: John 3:16 with detailed explanation
+### Common Issues
 
-### 3. **Conversational Context**
-- Remembers previous questions
-- Builds context over conversation
-- Provides relevant follow-up suggestions
+1. **"AI analysis not available"**
+   - Get a Gemini API key from [Google AI Studio](https://makersuite.google.com/app/apikey)
+   - Add it to your `.env` file
 
-### 4. **Confidence Scoring**
-- **High**: Exact matches with clear context
-- **Medium**: Good matches with some interpretation needed
-- **Low**: Approximate matches requiring clarification
+2. **Microphone not working**
+   - Ensure you're on HTTPS (required for microphone access)
+   - Check browser permissions
+   - Try refreshing the page
 
-## 🛠️ Development
+3. **Deployment issues on Render**
+   - Set environment variables in Render dashboard
+   - Ensure build command is: `pip install -r requirements.txt`
+   - Start command should be: `python app.py`
 
-### Adding New Features
-1. **New Bible API**: Add to `IntelligentBibleSearch` class
-2. **LLM Enhancement**: Modify `process_with_llm` method
-3. **UI Improvements**: Update `templates/index.html`
-
-### Testing
-```bash
-# Test the API
-curl -X POST http://localhost:5000/api/intelligent-search \
-  -H "Content-Type: application/json" \
-  -d '{"query": "What does the Bible say about love?"}'
-```
+### Getting Help
+- Check the browser console for errors
+- Verify your API keys are correct
+- Ensure all dependencies are installed
 
 ## 📝 License
 
 This project is open source and available under the MIT License.
 
-## 🤝 Contributing
+## 🙏 Acknowledgments
 
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Test thoroughly
-5. Submit a pull request
-
-## 🆘 Troubleshooting
-
-### Common Issues
-
-1. **Speech Recognition Not Working**
-   - Ensure you're using HTTPS or localhost
-   - Check browser permissions for microphone
-   - Try a different browser (Chrome recommended)
-
-2. **LLM Not Responding**
-   - Verify your Gemini API key is correct
-   - Check API quota limits
-   - Ensure internet connection
-
-3. **No Bible Results**
-   - Check internet connection
-   - Verify Bible API endpoints are accessible
-   - Try different search terms
-
-### Getting Help
-- Check the browser console for errors
-- Verify all API keys are set correctly
-- Ensure all dependencies are installed
+- Bible APIs for providing scripture data
+- Google AI for Gemini capabilities
+- Web Speech API for voice recognition
+- Flask community for the excellent framework
 
 ---
 
-**Built with ❤️ using Flask, Google Gemini AI, and modern web technologies**
+**Ready to explore the Bible with AI? Get your Gemini API key and start searching! 🚀**

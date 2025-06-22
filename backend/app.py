@@ -23,9 +23,15 @@ BIBLIA_BASE_URL = "https://api.biblia.com/v1"
 BIBLE_API_BASE_URL = "https://bible-api.com"
 
 # Initialize Gemini AI
+model = None
 if GEMINI_API_KEY:
-    genai.configure(api_key=GEMINI_API_KEY)
-    model = genai.GenerativeModel('gemini-pro')
+    try:
+        genai.configure(api_key=GEMINI_API_KEY)
+        model = genai.GenerativeModel('gemini-1.5-flash')
+        print("Gemini AI initialized successfully")
+    except Exception as e:
+        print(f"Failed to initialize Gemini AI: {e}")
+        model = None
 
 class IntelligentBibleSearch:
     """Enhanced Bible search with LLM capabilities"""
@@ -64,11 +70,11 @@ class IntelligentBibleSearch:
     
     def process_with_llm(self, user_input, bible_results):
         """Process user input and Bible results with LLM"""
-        if not GEMINI_API_KEY:
+        if not model:
             return {
-                'explanation': 'LLM not configured. Please add GEMINI_API_KEY to your .env file.',
+                'explanation': 'AI analysis not available. Please check your Gemini API key configuration.',
                 'refined_query': user_input,
-                'reasoning': 'No LLM processing available.',
+                'reasoning': 'LLM not configured or API key invalid.',
                 'confidence': 'Low'
             }
         
@@ -102,9 +108,9 @@ class IntelligentBibleSearch:
         except Exception as e:
             print(f"LLM processing error: {e}")
             return {
-                'explanation': f'Error processing with LLM: {str(e)}',
+                'explanation': f'AI analysis temporarily unavailable. Please try again later.',
                 'refined_query': user_input,
-                'reasoning': 'LLM processing failed.',
+                'reasoning': f'LLM processing failed: {str(e)}',
                 'confidence': 'Low'
             }
     
@@ -275,7 +281,7 @@ def clear_conversation_history():
 @app.route('/api/health')
 def health_check():
     """Health check endpoint"""
-    llm_status = 'configured' if GEMINI_API_KEY else 'not_configured'
+    llm_status = 'configured' if model else 'not_configured'
     return jsonify({
         'status': 'healthy', 
         'message': 'Intelligent Bible Search API is running',

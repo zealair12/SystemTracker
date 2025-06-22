@@ -1,0 +1,8 @@
+# Bible API Key (using default if not provided)
+BIBLE_API_KEY=a1692756d99fab00256e70dbda406cc7
+
+# Gemini AI API Key - Get yours from https://makersuite.google.com/app/apikey
+GEMINI_API_KEY=your_gemini_api_key_here
+
+# Flask Environment
+FLASK_ENV=development 
